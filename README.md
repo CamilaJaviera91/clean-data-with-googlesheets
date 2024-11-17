@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ### Execution
 
 1. **Run the main script:**
-   ```bash
+   ```
    python cvs_to_sheets.py
    ```
    This will perform the following actions:
