@@ -13,3 +13,6 @@ from google_sheets_utils import csv_to_sheets as cs
 #Add warnings and plt style
 warnings.filterwarnings('ignore')
 plt.style.use("default")
+
+#Obtain data frame from google_sheets_extractor
+df = sd()
