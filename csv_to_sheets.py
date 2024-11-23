@@ -52,3 +52,6 @@ cs()
 
 #Create the color palette (for this palette it was used this page: https://coolors.co/)
 my_palette = ["#2E86AB", "#A23B72", "#40B9EC", "#D64D96", "#3B1F2B"]
+
+#Function to create charts and export them to a PDF
+def charts_to_pdf(df, columns, pdf_path):
