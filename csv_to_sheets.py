@@ -109,3 +109,6 @@ def charts_to_pdf(df, columns, pdf_path):
                 pdf.savefig()  # Save the current figure to the PDF file
                 plt.tight_layout()  # Automatically adjust elements to avoid overlap
                 plt.close()  # Close the figure to prevent overwriting
+
+#PDF file path where the charts will be saved
+pdf_path = folder + 'charts_output.pdf'
