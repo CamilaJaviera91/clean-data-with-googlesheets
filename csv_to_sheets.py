@@ -112,3 +112,8 @@ def charts_to_pdf(df, columns, pdf_path):
 
 #PDF file path where the charts will be saved
 pdf_path = folder + 'charts_output.pdf'
+
+#Call the function with the dataframe and desired columns
+columns = df.columns
+charts_to_pdf(df, columns, pdf_path)
+print("Document Exported")
