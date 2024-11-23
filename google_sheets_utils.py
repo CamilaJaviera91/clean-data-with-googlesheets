@@ -13,6 +13,23 @@ plt.style.use("default")
 #current directory
 FOLDER = './'
 
-#Spreadsheet ID (you can find it in the URL of your Google Sheet example: https://docs.google.com/spreadsheets/d/1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz/edit#gid=0)
+#spreadsheet ID (you can find it in the URL of your Google Sheet example: https://docs.google.com/spreadsheets/d/1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz/edit#gid=0)
 #"1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz" this is the id that we need
 SPREADSHEET_ID = '1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz'
+
+#path to the credentials file
+#the credentials looks like this:
+#{
+#   "type": "",
+#   "project_id": "",
+#   "private_key_id": "",
+#   "private_key": "",
+#   "client_email": "",
+#   "client_id": "",
+#   "auth_uri": "",
+#   "token_uri": "",
+#   "auth_provider_x509_cert_url": "",
+#   "client_x509_cert_url": "",
+#   "universe_domain": ""
+# }
+SERVICE_ACCOUNT_FILE = FOLDER + 'credentials.json'
