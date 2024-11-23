@@ -82,3 +82,30 @@ def charts_to_pdf(df, columns, pdf_path):
         pdf.savefig()  # Save the current figure to the PDF file
         plt.tight_layout()  # Automatically adjust elements to avoid overlap
         plt.close()  # Close the figure to prevent overwriting
+
+        #Create charts with the variable "HIGHER_UNIQUE_VALUE"
+        for column in columns:
+            header = df[column]
+            header_counts = header.value_counts()
+            
+            # Sort values by count (descending)
+            header_counts_sorted = header_counts.sort_values(ascending=False)
+
+            # Check the number of unique values
+            unique_value = header_counts.count()
+            
+            if unique_value <= HIGHER_UNIQUE_VALUE:
+                plt.figure(figsize=(14, 8))
+                ax = sns.barplot(x=header_counts_sorted.index, y=header_counts_sorted.values, palette=my_palette, order=header_counts_sorted.index)
+                plt.title(column.upper(), fontsize=titles, fontweight='bold', fontname=font)
+                plt.xlabel('Categories', fontsize=label, fontname=font)
+                plt.ylabel('Quantity', fontsize=label, fontname=font)
+                plt.xticks(rotation=30, ha='right', fontsize=label, fontname=font)
+                
+                # Add values above the bars
+                for index, value in enumerate(header_counts.values):
+                    plt.text(index, value + 0.1, str(value), ha='center', va='bottom', fontsize=name, fontname=font)
+                
+                pdf.savefig()  # Save the current figure to the PDF file
+                plt.tight_layout()  # Automatically adjust elements to avoid overlap
+                plt.close()  # Close the figure to prevent overwriting
