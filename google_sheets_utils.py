@@ -33,3 +33,9 @@ SPREADSHEET_ID = '1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz'
 #   "universe_domain": ""
 # }
 SERVICE_ACCOUNT_FILE = FOLDER + 'credentials.json'
+
+#scopes required to access googlesheets
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 
+          'https://spreadsheets.google.com/feeds', 
+          'https://www.googleapis.com/auth/drive.file',
+          'https://www.googleapis.com/auth/drive']
