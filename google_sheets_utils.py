@@ -42,3 +42,30 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
 
 #load the credentials from the JSON file
 creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
+#function that transforms the sheets to a dataframe, so it can be work later
+def sheets_to_dataframe():
+
+    # Name of the sheet you want to work with
+    RANGE_NAME = 'sheets1!A:O'
+
+    # Connect to the Google Sheets API
+    service = build('sheets', 'v4', credentials=creds)
+    sheet = service.spreadsheets()
+
+    # Read data from the sheet
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=RANGE_NAME).execute()
+    values = result.get('values', [])
+
+    data_frame = pd.DataFrame(values)
+
+    try:
+        output_file_path = FOLDER + 'google_sheets_books.csv'
+        data_frame.to_csv(output_file_path, index=False, columns=None, header=False)
+        dfe = pd.read_csv(output_file_path)
+        print("Document Saved")  
+        
+    except NameError as e:
+        print(e)
+
+    return dfe
