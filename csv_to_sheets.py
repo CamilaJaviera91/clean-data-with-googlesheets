@@ -35,3 +35,17 @@ df['Published Month'] = months.convert_dtypes(convert_floating=False)
 
 #Remove the original date column
 df.drop(columns=['First Published date'], inplace=True)
+
+#Current folder
+folder = './'
+
+#Save the modified .CSV file
+output_file_path = folder + 'books_clean.csv'
+df.to_csv(output_file_path, index=False)
+
+#Read the new .CSV file
+file_path = folder + 'books_clean.csv'
+df = pd.read_csv(file_path)
+
+#Save the .csv file to Google Sheets
+cs()
