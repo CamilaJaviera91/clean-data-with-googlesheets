@@ -55,3 +55,11 @@ my_palette = ["#2E86AB", "#A23B72", "#40B9EC", "#D64D96", "#3B1F2B"]
 
 #Function to create charts and export them to a PDF
 def charts_to_pdf(df, columns, pdf_path):
+    #Unique value threshold to avoid overly detailed charts
+    HIGHER_UNIQUE_VALUE = 24
+    
+    #Format to ensure all charts have the same font type and size.
+    titles = 20
+    label = 12
+    font = 'Tahoma'
+    name = 10
