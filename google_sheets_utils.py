@@ -39,3 +39,6 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
           'https://spreadsheets.google.com/feeds', 
           'https://www.googleapis.com/auth/drive.file',
           'https://www.googleapis.com/auth/drive']
+
+#load the credentials from the JSON file
+creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
