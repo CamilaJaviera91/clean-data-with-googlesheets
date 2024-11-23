@@ -17,8 +17,21 @@ plt.style.use("default")
 #Obtain data frame from google_sheets_extractor
 df = sd()
 
-# Columns to be removed
+#Columns to be removed
 columns_to_remove = ['source_URL', 'Book Description', 'About the Author', 'Kindle Version and Price', 'Readers Choice Votes']
 
-# Remove the columns
+#Remove the columns
 df.drop(columns=columns_to_remove, inplace=True)
+
+#Convert the date column to datetime type
+df['First Published date'] = pd.to_datetime(df['First Published date'], errors='coerce')
+
+months = df['First Published date'].dt.month
+years = df['First Published date'].dt.year
+
+#Extract only the year and month
+df['Published Year'] = years.convert_dtypes(convert_floating=False)
+df['Published Month'] = months.convert_dtypes(convert_floating=False)
+
+#Remove the original date column
+df.drop(columns=['First Published date'], inplace=True)
