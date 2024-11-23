@@ -16,3 +16,9 @@ plt.style.use("default")
 
 #Obtain data frame from google_sheets_extractor
 df = sd()
+
+# Columns to be removed
+columns_to_remove = ['source_URL', 'Book Description', 'About the Author', 'Kindle Version and Price', 'Readers Choice Votes']
+
+# Remove the columns
+df.drop(columns=columns_to_remove, inplace=True)
