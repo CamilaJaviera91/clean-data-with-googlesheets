@@ -63,3 +63,22 @@ def charts_to_pdf(df, columns, pdf_path):
     label = 12
     font = 'Tahoma'
     name = 10
+
+    #Create a specific chart with two variables
+    with PdfPages(pdf_path) as pdf:
+        author_counts = df.groupby('Readers Choice Category')['Author'].nunique().sort_values(ascending=False)
+        
+        plt.figure(figsize=(14, 8))
+        sns.barplot(x=author_counts.index, y=author_counts.values, palette=my_palette)
+        plt.title('AUTHORS BY CATEGORY', fontsize=titles, fontweight='bold', fontname=font)
+        plt.xlabel('Category', fontsize=label, fontname=font)
+        plt.ylabel('Number of Authors', fontsize=label, fontname=font)
+        plt.xticks(rotation=30, ha='right', fontsize=label, fontname=font)
+        
+        # Add values above the bars
+        for index, value in enumerate(author_counts.values):
+            plt.text(index, value + 0.1, str(value), ha='center', va='bottom', fontsize=name, fontname=font)
+        
+        pdf.savefig()  # Save the current figure to the PDF file
+        plt.tight_layout()  # Automatically adjust elements to avoid overlap
+        plt.close()  # Close the figure to prevent overwriting
