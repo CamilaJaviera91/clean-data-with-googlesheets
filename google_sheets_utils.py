@@ -69,3 +69,31 @@ def sheets_to_dataframe():
         print(e)
 
     return dfe
+
+#create a googlesheet from a .csv file
+def csv_to_sheets():
+    
+    # Read the .csv file
+    df = pd.read_csv(FOLDER + 'new_name.csv')
+    # print(df)
+    try:
+        service = build('sheets', 'v4', credentials=creds)
+
+        data = [df.columns.tolist()] + df.to_numpy(dtype=str).tolist()
+        # Prepare the range where the data will be inserted
+        body = {
+            'values': data
+        }
+
+        # Write data to the spreadsheet
+        result = service.spreadsheets().values().update(
+            spreadsheetId=SPREADSHEET_ID,
+            range='Sheet1!A1',  # Modify this based on where you want to insert the data
+            valueInputOption='USER_ENTERED',
+            body=body
+        ).execute()
+
+        print(f"{result.get('updatedCells')} cells updated.")
+
+    except HttpError as error:
+        print(f"An error occurred: {error}")
