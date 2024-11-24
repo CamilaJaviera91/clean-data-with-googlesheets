@@ -39,8 +39,8 @@ pip install -r requirements.txt
 ### Data Extraction, Cleaning, and Analysis
 
 1. **`google_sheets_utils.py`**
-   - `sheets_to_dataframe`: Extracts data from Google Sheets and converts it into a pandas DataFrame.
-   - `csv_to_sheets`: Saves a CSV file to a Google Spreadsheet.
+   - `sheets_to_dataframe`: Extracts data from **Google Sheets** and converts it into a pandas DataFrame.
+   - `csv_to_sheets`: Saves a CSV file to a **Google Spreadsheet**.
 
 2. **`cvs_to_sheets.py`**
    - Cleans irrelevant columns and formats the data.
