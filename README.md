@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ## Setup
 
 1. **Google API Credentials:**
-   - Download the JSON credentials file from the Google Cloud Platform console.
+   - Download the `JSON` credentials file from the Google Cloud Platform console.
    - Save this file in the project directory with the name `credentials.json`.
 
 2. **Google Spreadsheet ID:**
