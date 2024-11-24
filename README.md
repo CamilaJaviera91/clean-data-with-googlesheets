@@ -17,7 +17,7 @@ These `scripts` allow data processing from **Google Sheets**, performing data cl
   - `google-auth-oauthlib`
 
 Install the dependencies by running:
-```bash
+```
 pip install -r requirements.txt
 ```
 
