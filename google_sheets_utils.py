@@ -15,7 +15,7 @@ FOLDER = './'
 
 #spreadsheet ID (you can find it in the URL of your Google Sheet example: https://docs.google.com/spreadsheets/d/1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz/edit#gid=0)
 #"1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz" this is the id that we need
-SPREADSHEET_ID = '1aBcD1234EfGhI56789JKLMnOpQrStUvWxYz'
+SPREADSHEET_ID = '122F-WEig80XnKWXx_Qg-UGaPiMIrmhVvpGxmpzQ4YDw'
 
 #path to the credentials file
 #the credentials looks like this:
@@ -47,7 +47,7 @@ creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FI
 def sheets_to_dataframe():
 
     # Name of the sheet you want to work with
-    RANGE_NAME = 'sheets1!A:O'
+    RANGE_NAME = 'libros!A:O'
 
     # Connect to the Google Sheets API
     service = build('sheets', 'v4', credentials=creds)
@@ -74,7 +74,7 @@ def sheets_to_dataframe():
 def csv_to_sheets():
     
     # Read the .csv file
-    df = pd.read_csv(FOLDER + 'new_name.csv')
+    df = pd.read_csv(FOLDER + 'books_clean.csv')
     # print(df)
     try:
         service = build('sheets', 'v4', credentials=creds)
@@ -88,7 +88,7 @@ def csv_to_sheets():
         # Write data to the spreadsheet
         result = service.spreadsheets().values().update(
             spreadsheetId=SPREADSHEET_ID,
-            range='Sheet1!A1',  # Modify this based on where you want to insert the data
+            range='Hoja1!A1',  # Modify this based on where you want to insert the data
             valueInputOption='USER_ENTERED',
             body=body
         ).execute()
