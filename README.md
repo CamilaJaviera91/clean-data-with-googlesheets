@@ -3,7 +3,7 @@
 This project includes two main scripts: `cvs_to_sheets.py` and `google_sheets_utils.py`. 
 <br>
 
-These `scripts` allow data processing from Google Sheets, performing data cleaning and analysis, and generating charts in a PDF file. Additionally, the processed results can be saved back to Google Sheets.
+These `scripts` allow data processing from **Google Sheets**, performing data cleaning and analysis, and generating charts in a PDF file. Additionally, the processed results can be saved back to Google Sheets.
 
 ## Requirements
 
